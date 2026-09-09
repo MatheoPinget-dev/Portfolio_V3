@@ -23,6 +23,12 @@ export const CERTIFICATIONS: Certification[] = [
     name: "HashiCorp Certified: Terraform Associate (004)",
     issuer: "HashiCorp",
     date: "Juil. 2026 - Juil. 2028",
-    badgeUrl: "https://images.credly.com/size/680x680/images/0e717fa5-93a1-4203-964c-051b4734b7eb/blob"
+    badgeUrl: "https://images.credly.com/size/680x680/images/6f614b71-3f2e-488e-8b29-71e90d4dbf80/blob"
+  },
+  {
+    name: "HashiCorp Certified: Vault Associate (003)",
+    issuer: "HashiCorp",
+    date: "Sept. 2026 - Sept. 2028",
+    badgeUrl: "https://images.credly.com/size/680x680/images/a366e439-0eee-419b-a6fd-48b7807c9035/blob"
   }
 ];

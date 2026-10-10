@@ -83,6 +83,17 @@ export const en = {
           ]
         },
         {
+          role: "Cloud DevOps Engineer (International Mobility)",
+          company: "Orange Innovation Romania, Bucharest",
+          period: "Aug 2026 - Oct 2026 (Internship)",
+          description: [
+            "Integrated into the Cloud Platforms team for managing and optimizing cloud solutions (VPC, PSC).",
+            "Developed automation scripts (Python, pandas-gbq) for automated report dispatch and BigQuery export optimization.",
+            "Created and updated technical administration documentation (VM rebuild, Cloud Console) for production change processes.",
+            "Enhanced Cloud Run pipelines (removed disk writes, direct memory streaming) to improve execution times and stability."
+          ]
+        },
+        {
           role: "Operations Research Intern",
           company: "DISP Laboratory, INSA Lyon",
           period: "Internship",
@@ -189,6 +200,28 @@ export const en = {
       made_with: 'Designed with React & Tailwind CSS'
     },
     projects_data: [
+      {
+        title: "Cloud Automation & Zero-Downtime Deployments",
+        category: "Pro Project",
+        image: "/Portfolio_V3/images/cloud_downtime_reduction.jpg",
+        description: "Development of automation tools (Daily Check) and implementation of a Zero-Downtime network upgrade strategy using immutable Golden Images.",
+        context: "Within the Cloud Production Management team, this project focused on two major governance and resilience initiatives: creating an automated reporting system for the GCP project lifecycle, and completely revamping the upgrade process for production routers interconnecting customer projects to Orange Flexible Cloud (OFC) via Network Connectivity Center (NCC).",
+        objective: "1. Implement the 'Daily Check email' to automate compliance monitoring (detecting inactive VPC Spokes and closed PSC Endpoints) in order to release reserved private IPs.\n2. Eliminate 3-minute network blackholes during primary router upgrades. The solution involves 'baking' immutable images via Cloud Build and GitLab CI, allowing boot disk hot-swapping and reducing downtime from 205s to 35s.",
+        tags: ["GCP", "GitLab CI", "Cloud Build", "Python", "Terraform", "BIRD", "Networking"],
+        features: [
+          "Automated detection of GCP anomalies (Inactive VPC Spokes, Closed PSC Endpoints without offboarding)",
+          "CI/CD Baking Pipeline: creation of immutable images including OS and routing rules (BIRD, iptables)",
+          "Automated boot disk hot-swapping on production instances (BGP priority shifting from 50 to 70)",
+          "Terraform Anti-Drift Validation (tf-plan-integration) integrated into GitLab CI",
+          "Continuous security tests (gitleaks) and automated rollback procedures in < 2 minutes"
+        ],
+        competencies: ["Cloud Architecture (GCP) & Observability", "BGP Routing & High Availability Networking", "Advanced CI/CD Pipelines (GitLab, Cloud Build)", "Infrastructure as Code (Terraform)"],
+        results: [
+          "Drastic reduction in upgrade downtime: from 205s to 35s on primary, 0s on secondary",
+          "Efficient release of Netbox resources through Daily Check automation",
+          "Secured deployments via pre-compiled images (Zero-Drift)"
+        ],
+      },
       {
         title: "Cloud Decommissioning Automation (UNBUILD)",
         category: "Professional Project",

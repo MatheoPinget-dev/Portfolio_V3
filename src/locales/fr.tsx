@@ -83,6 +83,17 @@ export const fr = {
           ]
         },
         {
+          role: "Ingénieur DevOps Cloud (Mobilité Internationale)",
+          company: "Orange Innovation Romania, Bucharest",
+          period: "Août 2026 - Oct. 2026 (Stage)",
+          description: [
+            "Intégration au sein de l'équipe Cloud Platforms pour la gestion et l'optimisation des solutions cloud (VPC, PSC).",
+            "Développement de scripts d'automatisation (Python, pandas-gbq) pour l'envoi de rapports automatisés et l'optimisation des exports BigQuery.",
+            "Création de documentation technique pour les processus de changement en production (VM rebuild, Cloud Console).",
+            "Amélioration des pipelines Cloud Run (streaming direct en mémoire, suppression des écritures disque) pour réduire les temps d'exécution."
+          ]
+        },
+        {
           role: "Stagiaire en Recherche Opérationnelle",
           company: "Laboratoire DISP, INSA Lyon",
           period: "Stage",
@@ -189,6 +200,28 @@ export const fr = {
       made_with: 'Conçu avec React & Tailwind CSS'
     },
     projects_data: [
+      {
+        title: "Automatisation Cloud & Zero-Downtime",
+        category: "Projet Pro",
+        image: "/Portfolio_V3/images/cloud_downtime_reduction.jpg",
+        description: "Développement d'outils d'automatisation (Daily Check) et implémentation d'une stratégie de mise à jour réseau Zero-Downtime via des images immuables (Golden Images).",
+        context: "Au sein de l'équipe Cloud Production Management, ce projet s'articule autour de deux axes majeurs de gouvernance et de résilience : la création d'un système de reporting automatisé pour le cycle de vie des projets GCP, et la refonte complète du processus de mise à jour des routeurs de production interconnectant les projets clients à Orange Flexible Cloud (OFC) via Network Connectivity Center (NCC).",
+        objective: "1. Mettre en place le « Daily Check email » pour automatiser le suivi de conformité (détection des VPC Spokes inactifs et des PSC Endpoints fermés) afin de libérer les IPs privées réservées.\n2. Éradiquer les blackholes réseau de 3 minutes lors des mises à jour des routeurs primaires. La solution passe par le \"baking\" d'images immuables via Cloud Build et GitLab CI, permettant le hot-swap des disques et réduisant l'indisponibilité de 205s à 35s.",
+        tags: ["GCP", "GitLab CI", "Cloud Build", "Python", "Terraform", "BIRD", "Réseau"],
+        features: [
+          "Détection automatisée des anomalies GCP (VPC Spokes inactifs, Endpoints PSC fermés sans offboarding)",
+          "Pipeline CI/CD de \"Baking\" : création d'images immuables avec OS et règles de routage (BIRD, iptables)",
+          "Automatisation du hot-swap de disque de boot sur instances de production (Bascule de priorité BGP 50 à 70)",
+          "Validation Anti-Drift Terraform (tf-plan-integration) intégrée à GitLab CI",
+          "Tests de sécurité continus (gitleaks) et procédures de rollback automatisées en < 2 minutes"
+        ],
+        competencies: ["Architecture Cloud (GCP) & Observabilité", "Routage BGP et Haute Disponibilité Réseau", "Pipelines CI/CD Avancés (GitLab, Cloud Build)", "Infrastructure as Code (Terraform)"],
+        results: [
+          "Réduction drastique du temps d'interruption : de 205s à 35s en primaire, 0s en secondaire",
+          "Libération efficace des ressources Netbox grâce au Daily Check",
+          "Sécurisation des déploiements grâce aux images pré-compilées (Zero-Drift)"
+        ],
+      },
       {
         title: "Automatisation de Démantèlement Cloud (UNBUILD)",
         category: "Projet Pro",

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Project } from '../../types';
 import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap, Download, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';

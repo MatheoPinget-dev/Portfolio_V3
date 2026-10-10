@@ -24,15 +24,24 @@ const Projects: React.FC = () => {
     return projects.filter(p => p.category === activeCategory);
   }, [activeCategory, projects]);
 
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
   const openModal = (project: Project) => {
     setSelectedProject(project);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedProject(null);
     setSelectedImage(null);
-    document.body.style.overflow = 'unset';
   };
 
   const closeLightbox = () => {

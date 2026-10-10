@@ -86,42 +86,12 @@ export const Particles: React.FC<ParticlesProps> = ({
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1
     const rafID = useRef<number | null>(null)
     const resizeTimeout = useRef<NodeJS.Timeout | null>(null)
-    useEffect(() => {
-        if (canvasRef.current) {
-            context.current = canvasRef.current.getContext("2d")
-        }
-        initCanvas()
-        animate()
-        const handleResize = () => {
-            if (resizeTimeout.current) {
-                clearTimeout(resizeTimeout.current)
-            }
-            resizeTimeout.current = setTimeout(() => {
-                initCanvas()
-            }, 200)
-        }
-        window.addEventListener("resize", handleResize)
-        return () => {
-            if (rafID.current != null) {
-                window.cancelAnimationFrame(rafID.current)
-            }
-            if (resizeTimeout.current) {
-                clearTimeout(resizeTimeout.current)
-            }
-            window.removeEventListener("resize", handleResize)
-        }
-    }, [color])
-    useEffect(() => {
-        onMouseMove()
-    }, [mousePosition.x, mousePosition.y])
-    useEffect(() => {
-        initCanvas()
-    }, [refresh])
-    const initCanvas = () => {
+
+    function initCanvas() {
         resizeCanvas()
         drawParticles()
     }
-    const onMouseMove = () => {
+    function onMouseMove() {
         if (canvasRef.current) {
             const rect = canvasRef.current.getBoundingClientRect()
             const { w, h } = canvasSize.current
@@ -134,7 +104,7 @@ export const Particles: React.FC<ParticlesProps> = ({
             }
         }
     }
-    const resizeCanvas = () => {
+    function resizeCanvas() {
         if (canvasContainerRef.current && canvasRef.current && context.current) {
             canvasSize.current.w = canvasContainerRef.current.offsetWidth
             canvasSize.current.h = canvasContainerRef.current.offsetHeight
@@ -190,7 +160,7 @@ export const Particles: React.FC<ParticlesProps> = ({
             }
         }
     }
-    const clearContext = () => {
+    function clearContext() {
         if (context.current) {
             context.current.clearRect(
                 0,
@@ -200,7 +170,7 @@ export const Particles: React.FC<ParticlesProps> = ({
             )
         }
     }
-    const drawParticles = () => {
+    function drawParticles() {
         clearContext()
         const particleCount = quantity
         for (let i = 0; i < particleCount; i++) {
@@ -219,7 +189,7 @@ export const Particles: React.FC<ParticlesProps> = ({
             ((value - start1) * (end2 - start2)) / (end1 - start1) + start2
         return remapped > 0 ? remapped : 0
     }
-    const animate = () => {
+    function animate() {
         clearContext()
         circles.current.forEach((circle: Circle, i: number) => {
             // Handle the alpha value
@@ -266,6 +236,38 @@ export const Particles: React.FC<ParticlesProps> = ({
         })
         rafID.current = window.requestAnimationFrame(animate)
     }
+    useEffect(() => {
+        if (canvasRef.current) {
+            context.current = canvasRef.current.getContext("2d")
+        }
+        initCanvas()
+        animate()
+        function handleResize() {
+            if (resizeTimeout.current) {
+                clearTimeout(resizeTimeout.current)
+            }
+            resizeTimeout.current = setTimeout(() => {
+                initCanvas()
+            }, 200)
+        }
+        window.addEventListener("resize", handleResize)
+        return () => {
+            if (rafID.current != null) {
+                window.cancelAnimationFrame(rafID.current)
+            }
+            if (resizeTimeout.current) {
+                clearTimeout(resizeTimeout.current)
+            }
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [color])
+    useEffect(() => {
+        onMouseMove()
+    }, [mousePosition.x, mousePosition.y])
+    useEffect(() => {
+        initCanvas()
+    }, [refresh])
+
     return (
         <div
             className={cn("pointer-events-none", className)}

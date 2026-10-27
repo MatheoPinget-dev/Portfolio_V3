@@ -251,6 +251,39 @@ export const fr = {
         ],
       },
       {
+        title: "GitHub Infrastructure as Code (GitOps)",
+        category: "Projet Perso",
+        image: "/Portfolio_V3/images/architecture_git.png",
+        gallery: [
+          "/Portfolio_V3/images/architecture_git.png"
+        ],
+        description: "Gestion automatisée et centralisée de l'infrastructure GitHub via Terraform, HCP Terraform, GitHub Actions et Cloudflare Workers avec remédiation de drift en temps réel.",
+        context: "Afin de standardiser et sécuriser l'ensemble de mes dépôts GitHub (21 dépôts gérés, branches, règles de protection Rulesets, alertes Dependabot), j'ai conçu une plateforme GitOps intégrale. L'infrastructure est entièrement déclarée sous forme de code Terraform, avec gestion de l'état distant sécurisé et locking sur HCP Terraform.",
+        objective: "1. Centraliser et standardiser l'infrastructure GitHub en tant que code (IaC) via un module réutilisable (github-repo) et un fichier de configuration unique (repos.tfvars).\n2. Automatiser le cycle CI/CD : validation du formatage, linting et génération de plans spéculatifs sur Pull Request, puis déploiement automatique sur merge vers main.\n3. Garantir un état Zero-Drift : audit quotidien planifié par Cron avec gestion d'Issues GitHub, et remédiation ultra-rapide en temps réel (~15s) via Webhooks d'événements GitHub relayés par un Cloudflare Worker sécurisé par signature HMAC SHA-256.",
+        tags: ["Terraform", "GitOps", "GitHub Actions", "HCP Terraform", "Cloudflare Workers", "JavaScript", "HCL", "DevOps", "CI/CD"],
+        features: [
+          "Architecture GitOps 100% automatisée avec backend distant HCP Terraform (State & Locking)",
+          "Module Terraform modulaire 'github-repo' (dépôts, branches, rulesets, dependabot)",
+          "Pipeline CI/CD (terraform.yml) avec vérification de conformité et plan spéculatif sur PR",
+          "Pipeline d'audit quotidien Anti-Drift (drift-detection.yml) avec cycle de vie d'Issues automatisé",
+          "Remédiation événementielle temps réel (event-watch-reconcile.yml) ciblée en ~15s (terraform apply ciblé)",
+          "Edge Gateway serverless sur Cloudflare Workers (vérification cryptographique HMAC SHA-256 et repository_dispatch)"
+        ],
+        competencies: [
+          "Infrastructure as Code (Terraform & HCP Terraform)",
+          "Pratiques GitOps & Pipelines CI/CD (GitHub Actions)",
+          "Architecture Serverless Edge (Cloudflare Workers & Webhooks HMAC)",
+          "Gouvernance & Sécurité GitHub (Rulesets, Dependabot, Anti-Drift)"
+        ],
+        results: [
+          "21 dépôts GitHub entièrement gouvernés par le code et standardisés",
+          "Remédiation ciblée des dérives (drift) en ~15 secondes sans recalculer l'ensemble du parc",
+          "Élimination des erreurs de configuration manuelle grâce à une source de vérité unique (repos.tfvars)",
+          "Sécurisation des accès et conformité continue (Zero Drift résiduel)"
+        ],
+        githubUrl: "https://github.com/MatheoPinget-dev/github-infrastructure",
+      },
+      {
         title: "Mon Homelab Perso (Proxmox VE)",
         category: "Projet Perso",
         image: "/Portfolio_V3/images/archi-homelab.jpeg",

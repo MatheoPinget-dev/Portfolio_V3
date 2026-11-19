@@ -30,5 +30,17 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "HashiCorp",
     date: "Sept. 2026 - Sept. 2028",
     badgeUrl: "https://images.credly.com/size/680x680/images/a366e439-0eee-419b-a6fd-48b7807c9035/blob"
+  },
+  {
+    name: "Fortinet NSE 1 Certified in Cybersecurity",
+    issuer: "Fortinet",
+    date: "Nov. 2026 - Nov. 2028",
+    badgeUrl: "https://images.credly.com/images/0dc7965b-8507-4312-9c12-1add6c50fa49/blob"
+  },
+  {
+    name: "Fortinet NSE 2 Certified in Cybersecurity",
+    issuer: "Fortinet",
+    date: "Nov. 2026 - Nov. 2028",
+    badgeUrl: "https://images.credly.com/images/a30952f3-f354-4233-b02a-690ffe95d190/blob"
   }
 ];
